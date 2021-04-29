@@ -12,7 +12,7 @@ function saveCard() {
 }
 
 numCardsOut = () => {
-  // document.getElementById('numsCards').innerHTML = cards.length;
+   document.getElementById('numCards').innerHTML = cards.length;
 };
 
 clearUI = () => {
