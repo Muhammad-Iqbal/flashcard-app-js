@@ -8,13 +8,26 @@ function saveCard() {
   console.log(cards);
   clearUI();
   numCardsOut();
+  storeCards()
 }
 
 numCardsOut = () => {
-  document.getElementById('numsCards').innerHTML = cards.length;
+  // document.getElementById('numsCards').innerHTML = cards.length;
 };
 
 clearUI = () => {
   document.getElementById('front').value = '';
   document.getElementById('back').value = '';
 };
+
+
+storeCards = () => {
+  let serializedCards =  JSON.stringify(cards);
+  localforage.setItem('flashcards',serializedCards).then(() =>{
+    return localforage.getItem('key')
+  }).then(() =>{
+    alert('saved')
+  }).catch(err =>{
+    console.log('Error',err)
+  })
+}
